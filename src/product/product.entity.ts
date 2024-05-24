@@ -1,6 +1,6 @@
-enum ProductType {
+export enum ProductType {
     PERECEDERO = 'Perecedero',
-    NO_PERECEDERO = 'No Perecedero'
+    NO_PERECEDERO = 'No perecedero'
 }
 
 export class Product {
