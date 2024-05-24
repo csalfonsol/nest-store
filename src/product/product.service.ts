@@ -19,7 +19,11 @@ export class ProductService {
     }
 
     findOne(id: string) {
-      return this.products.find(product => product.id === id);
+      const result = this.products.find(product => product.id === id);
+      if (result === undefined) {
+        return "Producto no encontrado"
+      }  
+      return result;
     }
 
     create(id: string, name: string, price: number, type: ProductType) {
@@ -44,6 +48,11 @@ export class ProductService {
     }
 
     delete(id: string) {
+      const result = this.products.find(product => product.id === id);
+      if (result === undefined) {
+        return "Producto no encontrado"
+      }  
       this.products = this.products.filter(product => product.id !== id);
+      return "Producto eliminado exitosamente";
     }
 }
