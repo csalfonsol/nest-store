@@ -6,7 +6,7 @@ export class ProductService {
     
   private products: Product[] = [
     {
-      id: 'A1',
+      id: 'P1',
       name: 'Default Apple',
       price: 300,
       type: ProductType.PERECEDERO
@@ -21,8 +21,10 @@ export class ProductService {
   findOne(id: string) {
     const result = this.products.find(product => product.id === id);
     if (result === undefined) {
-      return "Producto no encontrado"
-    }  
+      return {
+        error: "Producto no encontrado"
+      };
+    }
     return result;
   }
 
@@ -50,7 +52,9 @@ export class ProductService {
   delete(id: string) {
     const result = this.products.find(product => product.id === id);
     if (result === undefined) {
-      return "Producto no encontrado"
+      return {
+        error: "Producto no encontrado"
+      };
     }  
     this.products = this.products.filter(product => product.id !== id);
     return "Producto eliminado exitosamente";

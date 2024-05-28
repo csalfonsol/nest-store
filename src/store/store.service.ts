@@ -21,7 +21,9 @@ export class StoreService {
     findOne(id: string) {
       const result = this.stores.find(store => store.id === id);
       if (result === undefined) {
-        return "Tienda no encontrada"
+        return {
+          error: "Tienda no encontrada"
+        };
       }  
       return result;
     }
@@ -37,7 +39,9 @@ export class StoreService {
         this.stores.push(store);
         return store;
       }
-      return "Código de ciudad inválido";
+      return {
+        error: "Código de ciudad inválido"
+      };
     }
 
     update(id: string, newData: any) {
@@ -50,7 +54,9 @@ export class StoreService {
     delete(id: string) {
       const result = this.stores.find(store => store.id === id);
       if (result === undefined) {
-        return "Tienda no encontrada"
+        return {
+          error: "Tienda no encontrada"
+        };
       }  
       this.stores = this.stores.filter(store => store.id !== id);
       return "Tienda eliminada exitosamente";
