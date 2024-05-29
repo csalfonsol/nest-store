@@ -18,10 +18,18 @@ export class StoreService {
       return this.stores;
     }
 
+    findAllByIds(storeIdList) {
+      return this.stores.filter(store => {
+        return storeIdList.some(id => id.idStore === store.id);
+      });
+    }
+
     findOne(id: string) {
       const result = this.stores.find(store => store.id === id);
       if (result === undefined) {
-        return "Tienda no encontrada"
+        return {
+          error: "Tienda no encontrada"
+        };
       }  
       return result;
     }
@@ -33,11 +41,13 @@ export class StoreService {
         city,
         address
       }
-      if (this.isValidCityCode(city)) {  
+      if (this.isValidCityCode(city)) {
         this.stores.push(store);
         return store;
       }
-      return "Código de ciudad inválido";
+      return {
+        error: "Código de ciudad inválido"
+      };
     }
 
     update(id: string, newData: any) {
@@ -48,12 +58,14 @@ export class StoreService {
     }
 
     delete(id: string) {
-      const result = this.stores.find(store => store.id === id);
-      if (result === undefined) {
-        return "Tienda no encontrada"
+      const storeToDelete = this.stores.find(store => store.id === id);
+      if (storeToDelete === undefined) {
+        return {
+          error: "Tienda no encontrada"
+        };
       }  
       this.stores = this.stores.filter(store => store.id !== id);
-      return "Tienda eliminada exitosamente";
+      return storeToDelete;
     }
 
 
