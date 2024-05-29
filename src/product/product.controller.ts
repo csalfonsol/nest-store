@@ -18,7 +18,6 @@ export class ProductController {
 
     @Post('create')
     create(@Body() newProduct: any) {
-      console.log(newProduct);
       return this.productService.create(newProduct.id, newProduct.name, newProduct.price, newProduct.type);
     }
 

@@ -23,14 +23,46 @@ export class ProductStoreService {
     if ('error' in store){
       return "La tienda con id ".concat(idStore).concat(" no existe");
     }
-    this.productStore.push(
-      {
-        idProduct: idProduct,
-        idStore: idStore
-      }
-    );
+    if (this.productStore.some(product => product.idProduct === idProduct && product.idStore === idStore)) {
+      return "El producto con id ".concat(idProduct).concat(" ya está asociado a la tienda con id ").concat(idStore);  
+    }
 
-    return this.productStore;
+    const newAsociation = {
+      idProduct: idProduct,
+      idStore: idStore
+    };
+    this.productStore.push(newAsociation);
+
+    return newAsociation;
+  }
+
+  findStoresFromProduct(idProduct: string){
+    const storeIdList = this.productStore
+      .filter(item => item.idProduct === idProduct)
+      .map(item => ({ idStore: item.idStore }));
+    const storeList = this.storeService.findAllByIds(storeIdList);
+    return storeList;
+  }
+
+  findStoreFromProduct(idProduct: string, idStore: string){
+    if (this.productStore.some(duple => duple.idProduct === idProduct && duple.idStore === idStore)) {
+      return this.storeService.findOne(idStore);
+    }
+    return "El producto con id ".concat(idProduct).concat(" No está asociado a la tienda con id ").concat(idStore);  
+  }
+
+  updateStoresFromProduct(idProduct: string, newData: any){
+    const storeList = this.findStoresFromProduct(idProduct);
+    let storesUpdated = [];
+    storeList.forEach(store => {
+      storesUpdated.push(this.storeService.update(store.id, newData));
+    });
+    return storesUpdated;
+  }
+
+
+  deleteStoresFromProduct(idProduct: string){
+
   }
 
 

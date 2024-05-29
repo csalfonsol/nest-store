@@ -18,6 +18,12 @@ export class StoreService {
       return this.stores;
     }
 
+    findAllByIds(storeIdList) {
+      return this.stores.filter(store => {
+        return storeIdList.some(id => id.idStore === store.id);
+      });
+    }
+
     findOne(id: string) {
       const result = this.stores.find(store => store.id === id);
       if (result === undefined) {
@@ -35,7 +41,7 @@ export class StoreService {
         city,
         address
       }
-      if (this.isValidCityCode(city)) {  
+      if (this.isValidCityCode(city)) {
         this.stores.push(store);
         return store;
       }
