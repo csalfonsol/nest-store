@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "8b1d66c4-d333-4f28-9b5f-cf36313919a1",
+		"name": "Tienda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6088144"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/stores/findall",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"findall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findOne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/stores/findone/S1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"findone",
+						"S1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findOne tienda inexistente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/stores/findone/S123",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"findone",
+						"S123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"S2\",\r\n    \"name\": \"Cooratiendas\",\r\n    \"city\": \"MED\",\r\n    \"address\": \"Av. York - Lincoln\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/stores/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create tienda invalida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"S3\",\r\n    \"name\": \"Olimpica\",\r\n    \"city\": \"BOGOTA\",\r\n    \"address\": \"Av. York - Lincoln\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/stores/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"Jersey Avenue\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/stores/update/S1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"update",
+						"S1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update tienda inexistente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\": \"Jersey Avenue\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/stores/update/S123",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"update",
+						"S123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/stores/delete/A1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"delete",
+						"A1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete tienda inexistente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/stores/delete/A123",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stores",
+						"delete",
+						"A123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
