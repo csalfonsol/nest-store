@@ -7,12 +7,7 @@ export class ProductStoreService {
 
   constructor(private productService: ProductService, private storeService: StoreService) {}
 
-  private productStore = [
-    {
-      idProduct: 'P1',
-      idStore: 'S1',
-    }
-  ]
+  private productStore = []
 
   addStoreToProduct(idProduct: string, idStore: string) {
     const product = this.productService.findOne(idProduct);
@@ -62,7 +57,13 @@ export class ProductStoreService {
 
 
   deleteStoresFromProduct(idProduct: string){
-
+    const storeList = this.findStoresFromProduct(idProduct);
+    let storesDeleted = [];
+    storeList.forEach(store => {
+      this.productStore = this.productStore.filter(item => item.idStore !== store.id);
+      storesDeleted.push(this.storeService.delete(store.id));
+    });
+    return storesDeleted;
   }
 
 

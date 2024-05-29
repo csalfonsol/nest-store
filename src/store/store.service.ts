@@ -58,14 +58,14 @@ export class StoreService {
     }
 
     delete(id: string) {
-      const result = this.stores.find(store => store.id === id);
-      if (result === undefined) {
+      const storeToDelete = this.stores.find(store => store.id === id);
+      if (storeToDelete === undefined) {
         return {
           error: "Tienda no encontrada"
         };
       }  
       this.stores = this.stores.filter(store => store.id !== id);
-      return "Tienda eliminada exitosamente";
+      return storeToDelete;
     }
 
 
