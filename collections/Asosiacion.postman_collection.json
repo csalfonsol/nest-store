@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "817faf54-fc24-4ba0-bcd0-c48ec8afe17d",
+		"name": "Asosiacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6088144"
+	},
+	"item": [
+		{
+			"name": "addStoreToProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/P1/stores/S1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P1",
+						"stores",
+						"S1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addStoreToProduct tienda inexistente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/P1/stores/S3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P1",
+						"stores",
+						"S3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addStoreToProduct producto inexistente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/P3/stores/S1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P3",
+						"stores",
+						"S1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findStoresFromProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/product/P1/stores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P1",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findStoreFromProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/product/P1/store/S1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P1",
+						"store",
+						"S1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findStoreFromProduct producto inexistente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/product/P3/store/S1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P3",
+						"store",
+						"S1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateStoresFromProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Olimpica\",\r\n    \"address\": \"Streeth AVENUE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/product/P1/stores",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P1",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateStoresFromProduct Producto inexistente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/P3/stores",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P3",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteStoresFromProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/P1/stores",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P1",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteStoresFromProduct producto inexistente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/product/P3/stores",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"P3",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

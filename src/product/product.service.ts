@@ -4,12 +4,12 @@ import { Product, ProductType } from './product.entity';
 @Injectable()
 export class ProductService {
     
-  private products: Product[] = [
+  private products: any[] = [
     {
       id: 'P1',
       name: 'Default Apple',
       price: 300,
-      type: ProductType.PERECEDERO
+      type: 'Perecedero'
     }
   ]
 
@@ -28,14 +28,14 @@ export class ProductService {
     return result;
   }
 
-  create(id: string, name: string, price: number, type: ProductType) {
+  create(id: string, name: string, price: number, type: string) {
     const product = {
       id,
       name,
       price,
       type
     }
-    if (Object.values(ProductType).includes(type)) {  
+    if (type === "Perecedero" || type === "No perecedero") {  
       this.products.push(product);
       return product;
     }
